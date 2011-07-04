@@ -1,0 +1,46 @@
+body {
+	font-family: tahoma, arial;
+	font-size: 12px;
+	margin: 0 auto;
+	width: 960px;
+}
+
+fieldset {
+	border: none;
+}
+
+legend {
+	display: none;
+}
+
+form ul {
+	list-style: none;
+}
+
+h1 {
+	color: red;
+}
+
+input[type=text] {
+	width: 200px;	
+}
+
+label {
+	display: block;
+	font-weight: bold;
+}
+
+#errors, #notices {
+	font-weight: bold;
+	padding: 10px;
+}
+
+#errors {
+	background: red;
+	color: white;
+}
+
+#notices {
+	background: green;
+	color: white;
+}
