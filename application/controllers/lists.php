@@ -40,7 +40,8 @@ class Lists extends CI_Controller {
 			$this->form_validation->set_rules('list_name', 'List Name', 'required');
 			if($this->form_validation->run() !== FALSE)
 			{
-				$id = $this->list_model->add_new_list($this->input->post('list_name'), $this->input->post('item'));
+				$id = $this->list_model->add_new_list($this->input->post('list_name'));
+				$this->list_model->add_list_items($id, $this->input->post('item'));
 				$this->session->set_flashdata('notices', 'Successfully added');
 				redirect(site_url('lists/view/'.$id));
 			}

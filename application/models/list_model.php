@@ -4,7 +4,8 @@ class List_model extends CI_Model {
 	
 	function get_all_lists()
 	{
-		return $this->db->get('list')->result();
+		return $this->db->get('list')
+						->result();
 	}
 	
 	function get_list($id)
@@ -23,10 +24,14 @@ class List_model extends CI_Model {
   		return $data;
 	}
 	
-	function add_new_list($name, $items = array())
+	function add_new_list($name)
 	{
 		$this->db->insert('list', array('list_name' => $name));
-		$list_id = $this->db->insert_id();
+		return $this->db->insert_id();
+	}
+	
+	function add_list_items($list_id, $items)
+	{
 		
 		foreach($items as $item)
 		{
@@ -35,6 +40,6 @@ class List_model extends CI_Model {
 				$this->db->insert('list_items', array('list_item_name' => $item, 'list_id' => $list_id));
 			}
 		}
-		return $list_id;
+		return;
 	}
 }
